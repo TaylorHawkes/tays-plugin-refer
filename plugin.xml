@@ -8,4 +8,14 @@
     <js-module src="www/register.js" name="device">
         <clobbers target="device" />
     </js-module>
+    <platform name="android">
+        <config-file target="config.xml" parent="/*">
+            <feature name="Echo">
+                <param name="android-package" value="org.apache.cordova.plugin.Echo"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/Echo.java" target-dir="src/org/apache/cordova/plugin" />
+    </platform>
+
 </plugin>
