@@ -23,7 +23,7 @@ public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 @Override
 public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
-     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.cordova.getActivity());
      String answer=  sharedPreferences.getString("referrer");
 
     if (action.equals("echo")) {
