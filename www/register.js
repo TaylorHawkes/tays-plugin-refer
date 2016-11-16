@@ -1,4 +1,4 @@
-window.echo = function(str, callback) {
+window.tays_get_refer = function(str, callback) {
     cordova.exec(callback, function(err) {
         callback('Nothing to echo.');
     }, "Echo", "echo", [str]);

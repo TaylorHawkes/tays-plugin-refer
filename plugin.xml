@@ -5,6 +5,9 @@
     <description>Cordova Device Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova,device</keywords>
+    <engines>
+        <engine name="cordova-android" version=">=3.0.0"/>
+     </engines>
     <js-module src="www/register.js" name="device">
         <clobbers target="device" />
     </js-module>
@@ -14,7 +17,6 @@
                 <param name="android-package" value="org.apache.cordova.plugin.Echo"/>
             </feature>
         </config-file>
-
         <source-file src="src/android/Echo.java" target-dir="src/org/apache/cordova/plugin" />
     </platform>
 </plugin>

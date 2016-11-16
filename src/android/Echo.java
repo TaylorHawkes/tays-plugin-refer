@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import android.preference.PreferenceManager;
+import android.content.SharedPreferences;
 
 /**
 * This class echoes a string called from JavaScript.
@@ -23,12 +24,10 @@ public void initialize(CordovaInterface cordova, CordovaWebView webView) {
 @Override
 public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
 
-     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.cordova.getActivity());
-     String answer=  sharedPreferences.getString("referrer");
-
-    if (action.equals("echo")) {
-        String message = args.getString(0);
-        this.echo(answer, callbackContext);
+     if (action.equals("echo")) {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.cordova.getActivity());
+        String answer=  sharedPreferences.getString("referrer",null);
+        callbackContext.success(message);
         return true;
     }
     return false;
