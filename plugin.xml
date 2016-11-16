@@ -17,5 +17,4 @@
 
         <source-file src="src/android/Echo.java" target-dir="src/org/apache/cordova/plugin" />
     </platform>
-
 </plugin>

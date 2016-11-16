@@ -6,6 +6,7 @@ import org.apache.cordova.CallbackContext;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import android.preference.PreferenceManager;
 
 /**
 * This class echoes a string called from JavaScript.
@@ -14,9 +15,13 @@ public class Echo extends CordovaPlugin {
 
 @Override
 public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+
+     SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+     String answer=  sharedPreferences.getString("referrer");
+
     if (action.equals("echo")) {
         String message = args.getString(0);
-        this.echo(message, callbackContext);
+        this.echo(answer, callbackContext);
         return true;
     }
     return false;
