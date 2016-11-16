@@ -27,7 +27,7 @@ public boolean execute(String action, JSONArray args, CallbackContext callbackCo
      if (action.equals("echo")) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.cordova.getActivity());
         String answer=  sharedPreferences.getString("referrer",null);
-        callbackContext.success(message);
+        callbackContext.success(answer);
         return true;
     }
     return false;
