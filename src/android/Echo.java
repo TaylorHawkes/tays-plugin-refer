@@ -27,7 +27,11 @@ public boolean execute(String action, JSONArray args, CallbackContext callbackCo
      if (action.equals("echo")) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.cordova.getActivity());
         String answer=  sharedPreferences.getString("referrer",null);
-        callbackContext.success(answer);
+        if (answer != null && answer.length() > 0) {
+            callbackContext.success(answer);
+        }else{
+            callbackContext.error("Expected one non-empty string argument.");
+        }
         return true;
     }
     return false;
